@@ -9,6 +9,7 @@ class ProuductCubit extends Cubit<ProductStates> {
 
   final Dio dio = Dio();
 
+
   Future<void> getAllProduct() async {
     emit(ProductLoading());
 
@@ -26,4 +27,23 @@ class ProuductCubit extends Cubit<ProductStates> {
       emit(ProductError(e.toString()));
     }
   }
+  Future<void> getCategoryProducts(String category) async {
+  emit(ProductLoading());
+
+  try {
+    final response = await dio.get(
+      'https://fakestoreapi.com/products/category/$category',
+    );
+
+    final List data = response.data;
+
+    final products = data
+        .map((item) => ProductModel.fromJson(item))
+        .toList();
+
+    emit(ProductSuccess(products));
+  } catch (e) {
+    emit(ProductError(e.toString()));
+  }
 }
+  }

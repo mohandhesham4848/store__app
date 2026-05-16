@@ -1,7 +1,7 @@
-class CategoryItem {
-  final String name;
+class CategoryModel {
+  final String title;
   final String imagePath;
 
-  CategoryItem({required this.name, required this.imagePath});
+  CategoryModel({required this.title, required this.imagePath});
 }
 

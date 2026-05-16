@@ -133,10 +133,10 @@ class HomeScreen extends StatelessWidget {
                       itemCount: state.products.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2, // number of columns
+                        crossAxisCount: 2, 
                         crossAxisSpacing: 40,
                         mainAxisSpacing: 40,
-                        childAspectRatio: 0.92, // card height control
+                        childAspectRatio: 0.92, 
                       ),
                       itemBuilder: (context, index) {
                         return ProductCard(productModel: state.products[index]);

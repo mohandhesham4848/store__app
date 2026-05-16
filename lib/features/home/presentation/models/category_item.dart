@@ -1,30 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:store__app/features/home/data/models/category_model.dart';
 
-class categoryItem extends StatelessWidget {
-  
-  const categoryItem({
+class CategoryItem extends StatelessWidget {
+  final CategoryModel categoryModel;
+
+  const CategoryItem({
     super.key,
+    required this.categoryModel,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 12),
+      padding: const EdgeInsets.only(right: 14),
       child: Column(
         children: [
           Container(
-            width: 65,
-            height: 65,
+            width: 80,
+            height: 80,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(42)),
-            child: Center(
-              child: Image.asset(
-                'assets/images/Running.png',
-                width: 40,
+              borderRadius: BorderRadius.circular(24),
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 10,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Image.network(
+                categoryModel.imagePath,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(
+                    Icons.image_not_supported,
+                    size: 30,
+                    color: Colors.grey,
+                  );
+                },
               ),
             ),
           ),
-          Text('Sports', style: TextStyle(color: Colors.white))
+
+          const SizedBox(height: 8),
+
+          SizedBox(
+            width: 85,
+            child: Text(
+              categoryModel.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 13,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
         ],
       ),
     );
