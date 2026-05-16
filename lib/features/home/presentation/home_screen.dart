@@ -7,7 +7,6 @@ import 'package:store__app/features/home/logic/cubit/prouduct_cubit.dart';
 import 'package:store__app/features/home/logic/cubit/prouduct_states.dart';
 import 'package:store__app/features/home/presentation/models/category_list.dart';
 import 'package:store__app/features/home/presentation/models/proudct_card.dart';
-import 'package:store__app/features/home/data/models/proudct_model.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

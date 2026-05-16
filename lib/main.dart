@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store__app/features/home/logic/cubit/prouduct_cubit.dart';
-import 'package:store__app/features/home/presentation/home_screen.dart';
-
 import 'package:store__app/features/splash/presentation/screens/splash_screen.dart';
 
 void main() {
